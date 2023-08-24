@@ -1,0 +1,17 @@
+<%-include("partials/header.ejs") %>
+<h1>Home</h1>
+ <% if(locals.homeStartContent){  %>
+    <p>
+        <%= homeStartContent %>
+    </p>
+    <% }  %>
+    <br>
+    <% if(locals.posts){  %>
+        <% for(let i = 0;i<posts.length ;i++){%>
+            <h2><%= posts[i].name %></h2>
+            <p><%= posts[i].content.substring(0,100)+" ..." %> 
+            <a href="posts/<%=posts[i].id%>">Read More</a></p>
+            <% }%>
+        <% }  %>
+        <br><br><br><br>
+<%-include("partials/footer.ejs") %>

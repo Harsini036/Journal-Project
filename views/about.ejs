@@ -1,0 +1,8 @@
+<%-include("partials/header.ejs") %>
+<h1><b>About</b></h1>
+<% if(locals.aboutContent){  %>
+    <p>
+        <%= aboutContent %>
+    </p>
+    <% }  %>
+<%-include("partials/footer.ejs") %>

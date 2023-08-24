@@ -1,0 +1,13 @@
+<%-include("partials/header.ejs") %>
+
+ <% if(locals.postData){  %>
+            <h1><%= postData.name %></h1><br>
+            <p><%= postData.content %></p>
+        
+        <% }  %>
+<% if(locals.error){  %>
+            
+            <h2><%= error %></h2>
+        
+        <% }  %>
+<%-include("partials/footer.ejs") %>

@@ -1,0 +1,129 @@
+
+body{
+    text-align: justify;
+}
+p,label,textarea{
+    font-size: 1.1rem;
+    font-family: 'PT Serif Caption', serif;
+}
+
+h1,h2{
+    padding-top: 20px;
+    font-size: 2.25rem;
+    color: #194a1f;
+    font-family: 'PT Serif Caption', serif;
+}
+.navbar{
+    font-family: 'DM Serif Display', serif;
+    background-color: #08200b;
+}
+.nav-item{
+    
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+    text-decoration: none !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+.navbar-default {
+    background-color: #051707;
+    border-color: #e7e7e7;
+}
+
+
+.footer {
+	position: fixed;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #051707;
+    margin-bottom: 0px;
+}
+
+.footer>p {
+	padding-top: 25px;
+	font-size: 1rem;
+    color: #fff;
+}
+.navbar{
+    background-color: #051707;
+    padding: 1.5% 10%;
+}
+.navbar-brand h3{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-item{
+    padding-left: 18px ;
+    padding-right: 18px;
+}
+.nav-link{
+    font-size: 1.1rem;
+    font-family: 'DM Serif Display', serif;
+    color: #fffbfb;
+    font-weight: 400;
+}
+.navbar-header .navbar-brand {
+    color: #f7f7f7 !important;
+    font-size: 1.75rem;
+    
+}
+.collapse.navbar-collapse{
+    margin-left: 35%;
+}
+.navbar-toggler{
+    margin-left: 30px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.97);
+}
+.nav-item{
+    text-align: left;
+}
+
+.btn{
+    background-color: #08200b;
+    color: #e7e7e7;
+    border-radius: 50%;
+    padding: 1% 3%;
+    font-family: 'DM Serif Display', serif;
+}
+
+.btn:hover{
+    background-color: #194a1f;
+}
+
+
+@media  (max-width: 900px) {
+    .navbar-header .navbar-brand {
+        font-size: 1.5rem;
+        margin: 2% 10%;
+        padding-left: 10px;
+    }
+    
+    h1,h2{
+        font-size: 1.75rem;
+    }
+
+    p{
+        font-size: 1rem;
+    }
+  }

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Daily Journal</title>
+  <link rel="icon" href="images/favicon1.ico">
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=DM+Serif+Display&family=Lato&family=Libre+Baskerville&family=Montserrat:wght@100;400;900&family=Nunito:wght@200;400&family=PT+Serif+Caption&family=Ubuntu:wght@300&family=Ysabeau+Infant:wght@400;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script class="press-img" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          
+        <div class="navbar-header">
+           
+            <a class="navbar-brand" href="">DAILY JOURNAL</a>
+          </div>
+          
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                  
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/compose">Compose</a>
+                  
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                  
+              </li>
+          </ul>
+          </div>
+      </nav> 
+  
+  
+
+
+  <body>
+    <div class="container">
+
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script class="press-img" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+
+  //jshint esversion:6
+require('dotenv').config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const _ = require("lodash");
+
+const app = express();
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
+
+main().catch(err => console.log(err));
+ 
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/journalDB');
+}
+const homeStartingContent = "Record your thoughts, experiences, and emotions in a private, secure space. Embrace the therapeutic benefits of daily journaling and enhance self-reflection. Our intuitive interface makes journaling a breeze, allowing you to write effortlessly and create a timeline of your life's journey. Set reminders to ensure you never miss a moment. Relive your most cherished memories, track personal growth, and gain valuable insights into your life. Start your daily journaling habit today and embark on a path of self-discovery and mindfulness. Begin writing your story with us!";
+const aboutContent = "Welcome to our Simple Daily Journal Website! We believe in the power of daily journaling to inspire personal growth and mindfulness. Our mission is to provide a seamless and intuitive platform for individuals to capture their thoughts, emotions, and experiences in a private and secure space. With a user-friendly interface and convenient features, we aim to make journaling a delightful and rewarding experience. Whether you're looking to track your progress, relieve stress, or simply cherish memories, our website is designed to be your faithful companion on your journey of self-discovery. Join us today and start writing your story, one day at a time.";
+const contactContent = "Hi! I am Harsini, a Under Graduate student. I have completed my UG in CS stream. Currenly undergoing Full Stack Courses. This website is built by me as part of a Web Development course from Angela Yu! Feel free to post about your daily experience here!";
+// Creating a schema (similar to collection)
+const postsSchema = new mongoose.Schema({
+  name: String,
+  content : String
+});
+ 
+
+const Post = mongoose.model("Post", postsSchema);
+ 
+const post1 = new Post({
+  name : "Day 1",
+  content:"Hello this is my very first post in my own Journal project. Waiting for the completion of this project and show to my parents."
+});
+
+const post2 = new Post({
+  name : "Day 2",
+  content:"Still working on this project. Completed my styling works. Currently working on the DB part."
+});
+
+const post3 = new Post({
+  name : "Day 3",
+  content:"Partially completed my DB work. Hoping to complete it within today! Wish me luck!"
+});
+
+const post4 = new Post({
+  name : "To complete course 4",
+  content:"day 4 content"
+});
+//post4.save();
+
+
+
+
+/* Post.insertMany([post1,post2,post3]).then (function () {
+  console.log("Successfully saved all posts");
+}) .catch(function (err) {
+  console.log(err);
+});  */  
+
+
+/* Item.deleteMany({name:"To complete course 1"})
+      .then(res=>{
+        //mongoose.connection.close();
+        console.log("Successful deletion!");
+      })
+      .catch(err=>{
+        console.log(err);
+});  */ 
+
+/* Item.find()
+  .then(function(items){
+    //mongoose.connection.close();
+    console.log("Items name");
+    items.forEach((item)=>{
+      console.log(item.name);
+    });
+  })
+  .catch(function(err){
+    console.log(err);
+  }); */
+app.get("/",(req,res)=>{
+  Post.find()
+  .then(function(posts){
+    if(posts.length===0){
+      Post.insertMany([post1,post2,post3]).then (function () {
+        console.log("Successfully saved all posts");
+      }) .catch(function (err) {
+        console.log(err);
+      }); 
+      res.redirect("/");
+    }
+    else{
+      //res.render("list", {listTitle: day, newListItems: items});
+      res.render("home",{homeStartContent : homeStartingContent, posts : posts});
+    }
+    //mongoose.connection.close();
+    
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+
+});
+
+app.get("/about",(req,res)=>{
+    res.render("about.ejs",{aboutContent : aboutContent});
+  });
+  
+app.get("/contact",(req,res)=>{
+    res.render("contact.ejs",{contactContent : contactContent});
+  });
+  
+app.get("/compose",(req,res)=>{
+    res.render("compose.ejs");
+});
+  
+app.post("/compose",(req,res)=>{
+  const data = { title : req.body.postTitle, content : req.body.newPost};
+  
+  Post.findOne({name:req.body.postTitle})
+  .then(postfound=>{
+    
+      if(!postfound){
+          console.log("Doesn't exist");
+          const post = new Post({
+          name : data.title,
+          content : data.content
+    });
+        
+        post.save();
+        res.redirect("/");
+        //res1.render("list",{listTitle:res.name,newListItems:res.items});
+      }
+      else{
+        console.log("exist");
+        console.log(res.items);
+        res.redirect("/");
+      }
+  })
+  .catch(err=>{
+    console.log(err);
+});
+  
+
+});
+
+app.get("/posts/:postId",(req,res)=>{
+    //var postParam = _.lowerCase(req.params.post);
+       //so when postId is mentioned as a route parameter we have to search for that post and render the name and content of the post to the post page which is decidated for that post to be displayed
+      var postParam = req.params.postId;
+      postParam =  postParam.trim();
+      console.log(postParam);
+      Post.findOne({_id : postParam})
+      .then(postFound=>{
+    
+        if(postFound){
+          console.log("postfound : "+ postFound);
+          res.render("post.ejs",{postData : postFound});
+          res.redirect("/"+postParam);
+          //res1.render("list",{listTitle:res.name,newListItems:res.items});
+        }
+        else{
+          const error = "Post with mentioned Id doesn't exists!";
+          res.render("post.ejs",{error: error});
+        }
+    })
+    .catch(err=>{
+      console.log(err);
+  });
+});  
+    /* for(let i=0;i<posts.length;i++){
+      const postTitle = _.lowerCase(posts[i].title);
+      //console.log(postTitle);
+      if( postParam === postTitle){
+        //console.log("Match found!");
+        res.render("post.ejs",{postData : posts[i]});
+      }else{
+       //console.log("Not a match!");
+      }
+    } */
+
+
+
+
+app.listen(3000, function() {
+  console.log("Server started on port 3000");
+});
+
+/**************************************/
+
+
+
+
+/* Post.insertMany([post1,post2,post3]).then (function () {
+  console.log("Successfully saved all posts");
+}) .catch(function (err) {
+  console.log(err);
+});  */  
+
+
+/* Item.deleteMany({name:"To complete course 1"})
+      .then(res=>{
+        //mongoose.connection.close();
+        console.log("Successful deletion!");
+      })
+      .catch(err=>{
+        console.log(err);
+});  */ 
+
+/* Item.find()
+  .then(function(items){
+    //mongoose.connection.close();
+    console.log("Items name");
+    items.forEach((item)=>{
+      console.log(item.name);
+    });
+  })
+  .catch(function(err){
+    console.log(err);
+  }); */
