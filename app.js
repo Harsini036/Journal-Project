@@ -14,7 +14,7 @@ app.use(express.static("public"));
 main().catch(err => console.log(err));
  
 async function main() {
-  await mongoose.connect(process.env.MONGO_URI);
+  await mongoose.connect('mongodb+srv://Neofragon1:Neohar678@cluster1.buvlfpj.mongodb.net/JournalDB');
 }
  
 const homeStartingContent = "Record your thoughts, experiences, and emotions in a private, secure space. Embrace the therapeutic benefits of daily journaling and enhance self-reflection. Our intuitive interface makes journaling a breeze, allowing you to write effortlessly and create a timeline of your life's journey. Set reminders to ensure you never miss a moment. Relive your most cherished memories, track personal growth, and gain valuable insights into your life. Start your daily journaling habit today and embark on a path of self-discovery and mindfulness. Begin writing your story with us!";
